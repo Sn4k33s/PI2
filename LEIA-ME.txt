@@ -1,0 +1,85 @@
+===============================
+CASHFLOW 2000 - JOGO DE INVESTIMENTOS
+===============================
+
+PROBLEMAS CORRIGIDOS:
+======================
+
+1. TEXTOS NAO APARECIAM NOS MENUS E TELAS
+   - Problema: Fontes estavam sendo carregadas/destruidas a cada frame em tela_menu()
+   - Solucao: Movidas para tela_invest_fonts_init/destroy() e gerenciadas globalmente
+
+2. TELA DO MENU VAZIA
+   - Problema: Faltava layout completo, cores, e textos dos botoes
+   - Solucao: Adicionado titulo azul (Win95 style), area de logo, botoes com textos
+
+3. TELA DE INVESTIMENTO INCOMPLETA
+   - Problema: Faltava titulo, botoes de "Passar Dia" e "Noticias"
+   - Solucao: Adicionado barra azul superior com botoes, header da lista
+
+4. FALTA DE CORES DE FUNDO
+   - Problema: Muitos elementos sem cor de fundo
+   - Solucao: Adicionado cores apropriadas em todos os paineis e areas
+
+5. HEADER VAZIO
+   - Problema: Colunas (Bolsa, Preco, Risco) nao apareciam
+   - Solucao: Adicionado header azul com titulos de coluna
+
+ARQUIVOS CORRIGIDOS:
+====================
+
+formas.c
+- Reorganizadas inicializacao de fontes (agora global)
+- Melhorado layout de tela_menu() com titulo, logo, botoes com textos
+- Melhorado layout de tela_invest() com titulo, botoes, header azul
+- Adicionadas cores Win95 style em todos os elementos
+- Adicionados textos visíveis em todos os menus
+
+formas.h
+- Adicionada declaracao de draw_player_portfolio_box() que estava faltando
+
+tela_invest.h
+- API limpa e minimalista para apresentacao
+
+COMO USAR:
+==========
+
+Menu Principal:
+- A: Novo Jogo (comeca com R$ 500)
+- ENTER: Continuar (carrega save anterior)
+- ESC: Sair
+
+Tela de Investimentos:
+- Mouse: Selecionar bolsa na lista
+- "Passar Dia": Avanca um dia (atualiza precos e noticias)
+- "Noticias": Mostra painel de noticias do dia
+- ENTER: Comprar/Vender acoes selecionadas (botoes aparecem quando bolsa selecionada)
+- ESC: Voltar ao menu
+
+ESTRUTURA:
+==========
+
+formas.c     - Desenho de UI (botoes, caixas, texto)
+formas.h     - Declaracoes de funcoes de UI
+textos.c     - Wrapper para desenho de texto (Allegro)
+textos.h     - Header de textos
+tela_invest.c - Logica da tela de investimentos (game loop, popups)
+tela_invest.h - API publica da tela de investimentos
+noticias.c   - Sistema de noticias (20 textos pré-definidos)
+noticias.h   - Estruturas de noticias
+player.c     - Dados do jogador (saldo, historico, portfolio)
+player.h     - API do jogador
+bolsa.c      - Sistema de bolsas (acoes, precos)
+bolsas.h     - Estruturas de bolsas
+telas.c      - Gerenciamento de display Allegro
+telas.h      - Headers de telas
+main.c       - Loop principal do jogo
+hover_mouse.c - Deteccao de hover no menu
+
+BUILD:
+======
+
+Visual Studio: F5 (Debug) ou Ctrl+F5 (Release)
+Compilação bem-sucedida!
+
+===============================

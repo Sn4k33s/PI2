@@ -1,2 +1,1 @@
-# PI2
-Jogo do Projeto Integrador 2
+# PI2-JAVA
